@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Center Trees</title>
+      <meta name="viewport" content="initial-scale=1.0">  
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
+      <link rel="stylesheet" type="text/css" href="index.css">
+      <script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
+      <script src="jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+      <script src="index.js"></script>
+      
+  </head>
+  <body>
+    <div id="directions_container">
+        <div id="directions_bar">
+            <div id="directions_button"><h3>Directions (hide)</h3></div>
+        </div>
+        <div id="directions_box">
+            <h3>1. Click and drag the street view image below to center the red square on the base of the tree that is closest to it.</h3>
+            <p>Make sure that you're using the </p>
+            
+            <p>If a tree is too far away to see clearly, do not mark it. If the base of the tree is blocked by another object, such as a car, take your best guess of where the base of the tree is.</p>
+            <p>
+                Use the "Submit HIT" button at the bottom of the page when you're done.
+            </p>
+        </div>
+    </div>
+    <div id="map_and_streetview_container">
+            <div class="pano_container" id="pano_1_container">
+                <div class="pano_wrapper">
+                    <div id="pano_1" class="streetview"></div>
+                    <div id="tree_marker_1" class="tree_marker"></div>
+                </div>
+                <label for="ip1">Visibility problems?</label>
+                <select name="ip1" id="image_problems_1">
+                    <option selected="selected">PLEASE SELECT ONE</option>
+                    <option>None</option>
+                    <option>Not a tree</option>
+                    <option>Tree not adjacent to street</option>
+                    <option>Tree blocked</option>
+                </select>
+            </div>
+        </div>
+    <button onClick="submitTree();" id="submit_button">Submit</button>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVaXLLe74QmHG1ZvQzplX0oFm0qgu3mgE&libraries=geometry&callback=initialize"
+    async defer></script>
+  </body>
+</html>

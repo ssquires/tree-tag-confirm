@@ -1,0 +1,93 @@
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #333333;
+}
+
+h3 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+.pano_container {
+    position: relative;
+    width: 500px;
+    height: 650px;
+    margin: 10px;
+    display: inline-block;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.streetview {
+    width: 500px;;
+    height: 500px;
+}
+
+#map_and_streetview_container {
+    padding-top: 100px;
+    width: 100%;
+    display: inline-block;
+}
+
+.tree_marker {
+    position: absolute;
+    top: 246px;
+    left: 246px;
+    width: 8px;
+    height: 8px;
+    z-index: 6;
+    background-color: #f00;
+}
+
+#panel_done_map {
+    width: 500px;
+    height: 500px;
+    padding: 0px;
+}
+
+.ui-selectmenu-text, .ui-menu-item, .ui-button-text, label {
+    font-size: 11px;
+}
+
+.submit_button {
+    margin: 10px auto;
+    display: block;
+}
+
+.undo_button {
+    margin: 10px auto;
+    display: block;
+}
+
+label {
+    font-family: Arial,Helvetica,sans-serif;
+    color: white;
+    display: block;
+    margin: 0px auto;
+}
+
+.ui-widget-header {
+    top: 3px;
+    right: 0px;
+    z-index: 5;
+}
+
+.pano_wrapper {
+    width: 500px;
+    height: 500px;
+}
+
+#submit_tree_button {
+    margin: 20px auto;
+}
