@@ -44,10 +44,12 @@ function findPano() {
                         if (status == google.maps.StreetViewStatus.OK) {
                             initPano(result.location.latLng);
                         } else {
-                            console.log("Error: Can't find close enough pano.")
+                            console.log("Error: Can't find close enough pano.");
                         }
-                    }
+                    
                     });
+                    }
+                });
                 }                              
             });
         }
