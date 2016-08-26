@@ -11,6 +11,10 @@ function initialize() {
     var urlParams = getJsonFromUrl();
     var lat = parseFloat(urlParams.lat);
     var lng = parseFloat(urlParams.lng);
+    var assignmentId = urlParams.assignmentId;
+    $('#assignment_id').val(assignmentId);
+    $('#assignment_lat').val(lat);
+    $('#assignment_lng').val(lng);
     
     treeLatLng = new google.maps.LatLng(lat, lng);
     findPano();
@@ -49,6 +53,7 @@ function initPano(panoLatLng) {
         position: panoLatLng,
         pov: {heading: 0, pitch: 0},
         disableDefaultUI: true,
+        scrollwheel: false,
     });
 
     var heading = google.maps.geometry.spherical.computeHeading(
@@ -93,16 +98,27 @@ function getTreeCoords() {
 
 function submitTree() {
     // TODO: submit heading, pitch, latlng of pano, as well as original tree latlng, calculated corrected tree latlng and visibility problems
+    $("#pano_lat").val(pano.getPosition().lat());
+    $("#pano_lng").val(pano.getPosition().lat());
     console.log("Pano: " + pano.getPosition().lat() + " " + pano.getPosition().lng());
+    $("#pano_heading").val(pano.getPov().heading);
+    $("#pano_pitch").val(pano.getPov().pitch);
     console.log("Heading: " + pano.getPov().heading + " Pitch: " + pano.getPov().pitch);
+    $("#original_tree_lat").val(treeLatLng.lat());
+    $("#original_tree_lng").val(treeLatLng.lng());
     console.log("Original tree latlng: " + treeLatLng.lat() + " " + treeLatLng.lng());
+    $("#corrected_tree_lat").val(getTreeCoords().lat());
+    $("#corrected_tree_lng").val(getTreeCoords().lng());
     console.log("Corrected tree latlng: " + getTreeCoords());
-    var issues = document.getElementById('image_problems_1');
-    var issueText = issues.options[issues.selectedIndex].text;
-    console.log("Visibility problems: " + issueText);
-    if (issueText == "PLEASE SELECT ONE") {
-        alert("Please use the dropdown menu to indicate whether there are any visibility problems.")
+    console.log("Not a Tree: " + document.getElementById("not-tree").checked);
+    console.log("Tree Blocked: " + document.getElementById("tree-blocked").checked);
+
+    var publicButton = document.getElementById("public");
+    var privateButton = document.getElementById("private");
+    if (!publicButton.checked && !privateButton.checked) {
+        alert("Please indicate whether this is a public or private tree.")
     } else {
+        console.log("Public: " + publicButton.checked);
         console.log("Submitting");
     }
 }
