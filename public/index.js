@@ -125,9 +125,11 @@ function submitTree() {
     var publicButton = document.getElementById("public");
     var privateButton = document.getElementById("private");
     if (!publicButton.checked && !privateButton.checked) {
-        alert("Please indicate whether this is a public or private tree.")
+        alert("Please indicate whether this is a public or private tree.");
+        return false;
     } else {
         console.log("Public: " + publicButton.checked);
         console.log("Submitting");
+        return true;
     }
 }

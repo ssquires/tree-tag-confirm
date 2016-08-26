@@ -33,7 +33,7 @@
                 </div>
                 <h3>Part 2</h3>
 <!--                <form id="form" action="https://www.mturk.com/mturk/externalSubmit" method="POST">-->
-                <form id="form" action="https://workersandbox.mturk.com/mturk/externalSubmit" method="POST">
+                <form id="form" action="https://workersandbox.mturk.com/mturk/externalSubmit" onsubmit="return submitTree();" method="POST">
                   <input id="not-tree" type="checkbox" value="Not a Tree">Not a Tree<br>
                   <input id="tree-blocked" type="checkbox" value="Blocked">Tree blocked<br>
                   <h3>Part 3</h3>
@@ -51,10 +51,10 @@
                   <input type="hidden" name="correctedTreeLat" id="corrected_tree_lat" value="">
                   <input type="hidden" name="correctedTreeLng" id="corrected_tree_lng" value="">
                   <input type="hidden" name="accepted" value="true">
+                  <input type="submit" id="submit_button" value="Submit HIT" style="display:block"/>
                 </form>
             </div>
         </div>
-    <button onClick="submitTree();" id="submit_button">Submit</button>
     <h3>Examples:</h3>
     <h4>Public Trees</h4>
     <img src="public_1.png" height="200">
