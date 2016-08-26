@@ -39,6 +39,13 @@ function findPano() {
                     service.getPanoramaByLocation(treeLatLng, 30, function(result, status) {
                     if (status == google.maps.StreetViewStatus.OK) {
                         initPano(result.location.latLng);
+                    } else {
+                        service.getPanoramaByLocation(treeLatLng, 40, function(result, status) {
+                        if (status == google.maps.StreetViewStatus.OK) {
+                            initPano(result.location.latLng);
+                        } else {
+                            console.log("Error: Can't find close enough pano.")
+                        }
                     }
                     });
                 }                              
